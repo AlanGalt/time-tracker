@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "vyBHRWB1+3jnGkg0a6SUkYGxa9LxPWPSNfLVjk31Bus=",
+  "Source": "GetThingsDoneAPI",
+  "BasePath": "_content/GetThingsDoneAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
