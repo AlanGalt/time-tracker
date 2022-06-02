@@ -12,7 +12,7 @@ namespace GetThingsDoneAPI.Services.ConcreteServices.ProjectService
         }
 
         public List<Issue> GetChildIssues(int projectId)
-        {
+        { 
             var parent = _db.Projects.Find(projectId);
             if (parent == null) return null;
             

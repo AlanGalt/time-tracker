@@ -988,19 +988,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\FullMaster\\.nuget\\packages\\": {}
+    "C:\\Users\\Admin\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Web Dev\\Get Things Done\\GetThingsDoneAPI\\GetThingsDoneAPI.csproj",
+      "projectUniqueName": "D:\\Web Dev\\Get-Things-Done\\GetThingsDoneAPI\\GetThingsDoneAPI.csproj",
       "projectName": "GetThingsDoneAPI",
-      "projectPath": "D:\\Web Dev\\Get Things Done\\GetThingsDoneAPI\\GetThingsDoneAPI.csproj",
-      "packagesPath": "C:\\Users\\FullMaster\\.nuget\\packages\\",
-      "outputPath": "D:\\Web Dev\\Get Things Done\\GetThingsDoneAPI\\obj\\",
+      "projectPath": "D:\\Web Dev\\Get-Things-Done\\GetThingsDoneAPI\\GetThingsDoneAPI.csproj",
+      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+      "outputPath": "D:\\Web Dev\\Get-Things-Done\\GetThingsDoneAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\FullMaster\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1008,7 +1008,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "http://api.nuget.org/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
@@ -1063,7 +1063,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

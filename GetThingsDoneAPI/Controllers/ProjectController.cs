@@ -19,7 +19,9 @@ namespace GetThingsDoneAPI.Controllers
         [HttpGet("/api/projects")]
         public ActionResult GetProjects()
         {
-            var projects = _projectService.GetEntities();
+            var projects = _projectService.GetEntities()
+                .OrderByDescending(p => p.ProjectId);
+
             return Ok(projects);
         }
 
@@ -54,6 +56,7 @@ namespace GetThingsDoneAPI.Controllers
         {
             if (_projectService.DeleteEntity(id) == 404) 
                 return NotFound($"Project with id={id} doesn't exist.");
+
             return Ok("Project deleted.");
         }
 
@@ -77,7 +80,9 @@ namespace GetThingsDoneAPI.Controllers
         [HttpGet("/api/projects/{id}/issues")]
         public ActionResult GetIssuesForProject(int id)
         {
-            var issues = _projectService.GetChildIssues(id);
+            var issues = _projectService.GetChildIssues(id)
+                ?.OrderByDescending(i => i.IssueId);
+
             if (issues == null) 
                 return NotFound($"Project with id={id} doesn't exist.");
             return Ok(issues);

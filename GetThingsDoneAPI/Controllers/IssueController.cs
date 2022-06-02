@@ -19,7 +19,9 @@ namespace GetThingsDoneAPI.Controllers
         [HttpGet("/api/issues")]
         public ActionResult GetIssues([FromQuery] bool? activeOnly)
         {
-            var issues = _issueService.GetEntities(activeOnly);
+            var issues = _issueService.GetEntities(activeOnly)
+                .OrderByDescending(i => i.IssueId);
+
             return Ok(issues);
         }
 
@@ -78,7 +80,9 @@ namespace GetThingsDoneAPI.Controllers
         [HttpGet("/api/issues/{id}/time-entries")]
         public ActionResult GetEntriesForIssue(int id)
         {
-            var entries = _issueService.GetChildEntries(id);
+            var entries = _issueService.GetChildEntries(id)
+                    ?.OrderByDescending(e => e.TimeEntryId);
+
             if (entries == null)
                 return NotFound($"Issue with id={id} doesn't exist.");
             return Ok(entries);

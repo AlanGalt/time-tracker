@@ -21,7 +21,9 @@ namespace GetThingsDoneAPI.Controllers
             [FromQuery] int? month,
             [FromQuery] DateOnly? date)
         {
-            var entries = _timeEntryService.GetEntities(month, date);
+            var entries = _timeEntryService.GetEntities(month, date)
+                .OrderByDescending(e => e.TimeEntryId);
+
             return Ok(entries);
         }
 
