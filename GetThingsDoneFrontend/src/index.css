@@ -7,17 +7,14 @@
   padding: 0;
   box-sizing: border-box;
   font-weight: 700;
+  font-family: 'Comfortaa', cursive;
 }
 
 html {
-  /* font-size: 62.5%; */
-  font-family: 'Comfortaa', cursive;
-  
   height: 100%;
 }
 
 body {
-  /* font-size: 1.6rem; */
   min-height: 100%;
 }
 

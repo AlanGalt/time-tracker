@@ -5,7 +5,7 @@ import Projects from '@/views/Projects.vue'
 const routes = [
   {
     path: '/',
-    redirect: '/projects'
+    redirect: '/timesheet'
   },
   {
     path: '/timesheet',

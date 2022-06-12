@@ -15,9 +15,9 @@ namespace GetThingsDoneAPI.Services
             return _db.Set<T>().ToList();
         }
 
-        public T GetSingleEntity(int Id)
+        public T GetSingleEntity(int id)
         {
-            return _db.Set<T>().Find(Id);
+            return _db.Set<T>().Find(id);
         }
 
         public int AddEntity(T entity)
@@ -27,9 +27,9 @@ namespace GetThingsDoneAPI.Services
             return 201;
         }
 
-        public int DeleteEntity(int Id)
+        public int DeleteEntity(int id)
         {
-            var toDelete = _db.Set<T>().Find(Id);
+            var toDelete = _db.Set<T>().Find(id);
 
             if (toDelete == null) return 404;
 
@@ -38,9 +38,9 @@ namespace GetThingsDoneAPI.Services
             return 200;
         }
 
-        public int EditEntity(int Id, T entity)
+        public int EditEntity(int id, T entity)
         {
-            var toUpdate = _db.Set<T>().Find(Id);
+            var toUpdate = _db.Set<T>().Find(id);
 
             if (toUpdate == null) return 404;
 

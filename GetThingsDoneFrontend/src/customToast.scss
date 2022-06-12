@@ -1,0 +1,11 @@
+$vt-color-success:  rgb(134, 239, 172);
+$vt-color-error: rgb(248, 113, 113);
+
+// Import the regular Vue Toastification stylesheets (or create your own)
+@import "vue-toastification/src/scss/_variables";
+@import "vue-toastification/src/scss/_toastContainer";
+@import "vue-toastification/src/scss/_toast";
+@import "vue-toastification/src/scss/_closeButton";
+@import "vue-toastification/src/scss/_progressBar";
+@import "vue-toastification/src/scss/_icon";
+@import "vue-toastification/src/scss/animations/_bounce";

@@ -18,10 +18,10 @@ namespace GetThingsDoneAPI.Controllers
 
         [HttpGet("/api/time-entries")]
         public ActionResult GetTimeEntries(
-            [FromQuery] int? month,
-            [FromQuery] DateOnly? date)
+            [FromQuery] DateOnly? date,
+            [FromQuery] bool? monthOnly)
         {
-            var entries = _timeEntryService.GetEntities(month, date)
+            var entries = _timeEntryService.GetEntities(date, monthOnly)
                 .OrderByDescending(e => e.TimeEntryId);
 
             return Ok(entries);
@@ -75,14 +75,21 @@ namespace GetThingsDoneAPI.Controllers
         {
             var entry = new TimeEntry
             {
+                TimeEntryId = id,
                 TimeEntryDate = timeEntryRequest.Date,
                 TimeEntryHours = timeEntryRequest.Hours,
                 TimeEntryDescription = timeEntryRequest.Description,
                 IssueId = timeEntryRequest.IssueId
             };
 
-            if (_timeEntryService.EditEntity(id, entry) == 404)
+            var result = _timeEntryService.EditEntity(id, entry);
+
+            if (result == 404)
                 return NotFound($"Time entry with id={id} doesn't exist.");
+
+            if (result == 422)
+                return UnprocessableEntity("24 hour limit exceeded.");
+
             return Ok("Issue edited.");
         }
     }

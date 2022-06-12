@@ -1,5 +1,6 @@
 <script setup>
   import InputText from '@/components/InputText.vue'
+  import { ref } from 'vue'
 
   const props = defineProps({
     id: Number,
@@ -9,20 +10,28 @@
 
   const emits = defineEmits(['onComplete', 'onDelete', 'onEdit']);
 
+  const defaultName = ref(props.name);
+
+  const editTask = () => {
+    if (!defaultName.value.length) {
+      defaultName.value = props.name;
+      return
+    }
+    emits('onEdit', props.id, defaultName.value);
+  };
 </script>
 
 <template>
-  <!--  -->
   <div class="flex items-center justify-between px-4 py-2
     border-b-2 border-slate-200 last:border-b-0
   ">
 
     <div class="pl-0.5 grow text-left">
       <InputText class="ml-11 px-4 py-0 w-11/12 bg-slate-100 border-slate-100"
-      v-model:textValue="name" 
+      v-model:textValue="defaultName" 
       :class="{'line-through': !active }"
       :disabled="!active"
-      @blur="active && $emit('onEdit', id, name)"
+      @blur="active && editTask()"
     />
     </div>
     

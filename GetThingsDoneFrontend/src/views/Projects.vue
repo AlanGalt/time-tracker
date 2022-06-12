@@ -7,6 +7,9 @@
   import TaskService from '@/services/TaskService.js'
   import ProjectModel from '@/models/ProjectModel.js'
   import TaskModel from '@/models/TaskModel.js'
+  import { useToast } from "vue-toastification"
+
+  const toast = useToast();
 
   const projectService = new ProjectService();
   const taskService = new TaskService();
@@ -25,18 +28,8 @@
   };
 
   const onAddProject = () => {
-    if (name.value.length > 35) {
-      alert("Project name must not be greater than 35 characters long");
-      return;
-    }
-    
     if (name.value.length === 0) {
-      alert("Project name can't be empty");
-      return;
-    }
-
-    if (code.value.length > 35) {
-      alert("Project code must not be greater than 35 characters long");
+      toast.error("Project name is required!");
       return;
     }
     
@@ -44,7 +37,8 @@
     const newProject = new ProjectModel(null, name.value, code.value);
     
     projectService.addProject(newProject)
-      .then(() => updateProjects());
+      .then(() => updateProjects())
+      .then(() => toast.success("Project created!"));
 
     name.value = '';
     code.value = '';
@@ -62,12 +56,13 @@
       oldProject.code === newProject.code) return;
 
     if (!newProject.name.length) {
-      alert("Project name can't be empty");
+      toast.error("Project name is required!");
       return;
     }
 
     projectService.editProject(id, newProject)
       .then(() => updateProjects())
+      .then(() => toast.success("Changes saved!"))
       .catch(err => console.log(err));
   };
 
@@ -84,8 +79,8 @@
 
 <template>
   <div class="w-fit h-fit">
-    <h1 class="mt-8 text-2xl">Projects</h1>
-    <form @submit.prevent="" class="mt-8">
+    <h1 class="mt-9 text-2xl">Projects</h1>
+    <form @submit.prevent="" class="mt-9">
       <InputText 
         placeholder="Project name"
         class="mr-2 w-96 bg-slate-100"

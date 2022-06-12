@@ -18,6 +18,11 @@ export default class TaskService {
     return response.data;
   }
 
+  async getTaskById(id) {
+    const response = await axios.get(`${this.API_URL}/issues/${id}`);
+    return response.data
+  }
+
   async getActiveTasks() {
     const response = await axios.get(`${this.API_URL}/issues?activeonly=true`);
     return response.data
