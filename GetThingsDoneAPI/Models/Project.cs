@@ -11,9 +11,5 @@ namespace GetThingsDoneAPI.Models
         
         public string ProjectCode { get; set; } = string.Empty;
         public bool ProjectActive { get; set; }
-
-        //public DateTime CreatedOn { get; set; }
-
-        //public DateTime LastUpdatedOn { get; set; }
     }
 }

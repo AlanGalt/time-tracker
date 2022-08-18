@@ -23,7 +23,10 @@ namespace GetThingsDoneAPI.Services.ConcreteServices.TimeEntryService
                             .Where(e => e.TimeEntryDate.Month == cur.Month &&
                                         e.TimeEntryDate.Year == cur.Year);
 
-            if (monthOnly == true) return byMonth.ToList();
+            if (monthOnly == true)
+            {
+                return byMonth.ToList();
+            }
 
             return byMonth
                 .Where(e => e.TimeEntryDate.Day == cur.Day)

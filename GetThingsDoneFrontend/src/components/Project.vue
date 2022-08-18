@@ -38,7 +38,7 @@
   
   const completeAllTasks = () => {
     tasks.value
-      .filter(task => task.projectId === props.id)
+      // .filter(task => task.projectId === props.id)
       .forEach(task => {
         task.active = false;
         taskService.editTask(task.id, task)
@@ -65,7 +65,7 @@
       .then(() => updateTasks())
       .catch(err => console.log(err));
   };
-
+  
   const onCompleteTask = (id) => {
     if (!props.active) emits('onComplete', props.id);
 

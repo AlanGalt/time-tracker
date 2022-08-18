@@ -12,7 +12,7 @@
   const monthEntries = ref([]);
   const attributes = ref([]);
   const curDate = ref('');
-
+  
   const updatePerfomance = (month, year) => {
     let monthISO;
     if (month && year) {
